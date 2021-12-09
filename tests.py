@@ -41,7 +41,3 @@ def test_tryStep():
     l=1
     arr[x+m][y+l]='#'
     assert not tryStep(x, y, m, l)
-
-def test_startpoint():
-    arr=' '
-    assert start_point(arr)
