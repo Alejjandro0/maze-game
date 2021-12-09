@@ -13,8 +13,8 @@ def create(size): # тут мы просто создаем массив 7 на 
             arr[i].append('')
     return arr
 def print_arr(arr):  #заполнение массива пробелами
-    for i in range(7):
-        for j in range(7):
+    for i in range(len(arr)):
+        for j in range(len(arr)):
             print(arr[i][j], end=' ')
         print()
 def cls():
@@ -31,7 +31,7 @@ def step(arr,x,y,m,l): #это функция шага, то есть прост
 def tryStep(x,y,m,l): #проверка на шаг если (мы выходим за пердел поля( при x>=7 или y>=7))
     x+=m
     y+=l
-    if x >= 7 or x < 0 or y >= 7 or y < 0 or arr[x][y] == '#': #или же если arr[i][j]="#" то выдает ошибку
+    if x >= len(arr) or x < 0 or y >= len(arr) or y < 0 or arr[x][y] == '#': #или же если arr[i][j]="#" то выдает ошибку
         print ('Ты не пройдешь')
         return False
     else:
@@ -42,8 +42,8 @@ def saveGame(k):
     fp = open("text.txt", "w") # тут мы просто записываем наш массив в файл построчно
     str1 = str(k)+'\n'
     str2 = str()
-    for i in range(7):
-        for j in range(7):
+    for i in range(len(arr)):
+        for j in range(len(arr)):
             str2 += str(arr[i][j])
     fp.write(str1)
     fp.write(str2)
@@ -56,9 +56,9 @@ def loadGame():  #тут мы просто выписываем  наш масс
     str1 = fp.readline()
     k = int(str1)
     str1 = fp.readline()
-    for i in range(7):
-        for j in range(7):
-            arr[i][j] = str1[i*7+j]
+    for i in range(len(arr)):
+        for j in range(len(arr)):
+            arr[i][j] = str1[i*len(arr)+j]
             if arr[i][j] == '*':
                 x = i
                 y = j
@@ -66,8 +66,8 @@ def loadGame():  #тут мы просто выписываем  наш масс
     return k, x, y
 
 def Gen(arr): #рандомное заполнение массив "#"
-    for i in range(7):
-        for j in range(7):
+    for i in range(len(arr)):
+        for j in range(len(arr)):
             if (random.randint(0, 10) < 5):
                 arr[i][j] = "#"
             else:
@@ -75,8 +75,8 @@ def Gen(arr): #рандомное заполнение массив "#"
     return arr
 def start_point(arr):
     flag = False
-    for i in range(7):
-        for j in range(7):
+    for i in range(len(arr)):
+        for j in range(len(arr)):
             if arr[i][j] == " ":
 
                 arr[i][j] = str(0)
@@ -88,16 +88,16 @@ def start_point(arr):
 
 
 def possible(arr):
-    for i in range(7):
-        for j in range(7):
+    for i in range(len(arr)):
+        for j in range(len(arr)):
             if arr[i][j] == " ":
                 return False
     return True
 
 def wave(T):   #волновой алгоритм нужен для проверки возможности пути от старта до финиша
     counter = 0
-    for i in range(7):
-        for j in range(7):
+    for i in range(len(arr)):
+        for j in range(len(arr)):
             if arr[i][j] == str(T):
                 if i - 1 > -1 and arr[i - 1][j] == " ":
                     arr[i - 1][j] = str(T + 1)
@@ -128,8 +128,8 @@ arr = create(7)
 arr = Gen(arr)
 while(wave_alg(arr) == False):  # ну тут изходя из волнового алгоритма делаем так чтобы игрок мог дойти до финиша
     Gen(arr)
-for i in range(7):
-    for j in range(7):
+for i in range(len(arr)):
+    for j in range(len(arr)):
         if arr[i][j] != " " and arr[i][j] != "#":
             arr[i][j] = " "
 
