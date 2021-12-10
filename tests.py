@@ -6,7 +6,7 @@ def test_saveload():
     loadGame()
     assert old_arr == arr
 
-def test_pregrada():
+def test_genarr():
     pregrada1=0
     pregrada=arr.count('#')
     saveGame(k)
@@ -29,10 +29,11 @@ def test_possible():
     arr[x][y]=' '
     assert not possible(arr)
 
+
 def test_tryStep():
-    x=10
-    y=10
-    m=0
+    x=7
+    y=7
+    m=1
     l=0
     assert not tryStep(x, y, m, l)
     x=6
