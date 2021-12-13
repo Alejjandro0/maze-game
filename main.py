@@ -94,29 +94,21 @@ def Gen(arr):
     return arr
 
 def start_point(arr):
-    '''Проверка на пустое место, чтобы была возможность поставить стартовую точку'''
+    '''Для работы волнового алгоритма ищем место в игровом поле без преград, и присваиваем ему 0'''
     flag = False
     for i in range(len(arr)):
         for j in range(len(arr)):
             if arr[i][j] == " ":
-
                 arr[i][j] = str(0)
                 flag = True
                 break
         if flag:
             break
 
-
-def possible(arr):
-    '''Функция для волнового алгоритма'''
-    for i in range(len(arr)):
-        for j in range(len(arr)):
-            if arr[i][j] == " ":
-                return False
-    return True
-
 def wave(T):
-    '''Проверяем возможность пути от старта до финиша с помощью алгоритма'''
+    '''Функция волнового алгоритма, ищет путь от старта до финиша, и считает количество шагов от старта до финиша
+    T=0 - входные данные, так как начинаем далее присваивать цифры клеткам, и эти уифры есть количество шагов от старта до самой клетки
+    Возвращает counter - количество шагов от начальной точки до преграды'''
     counter = 0
     for i in range(len(arr)):
         for j in range(len(arr)):
@@ -133,8 +125,17 @@ def wave(T):
                 if j + 1 < 7 and arr[i][j + 1] == " ":
                     arr[i][j + 1] = str(T + 1)
                     counter += 1
+    print(counter, T)
     return counter
 
+def possible(arr):
+    '''Функция для волнового алгоритма
+    Функция запускает заново алгоритм, если наш путь упирается в преграду'''
+    for i in range(len(arr)):
+        for j in range(len(arr)):
+            if arr[i][j] == " ":
+                return False
+    return True
 
 def wave_alg(arr):
     '''Волновой алгоритм
