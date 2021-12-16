@@ -31,9 +31,8 @@ def test_genarr():
 def test_possible():
     arr= ' '
     assert not possible(arr)
-    arr='#'
-    possible(arr)
-    assert True
+    arr=''
+    assert possible(arr)
 
 
 def test_tryStep():
