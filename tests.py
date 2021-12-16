@@ -29,9 +29,9 @@ def test_genarr():
 #    assert [return False]
 
 def test_possible():
-    arr= ' '
+    arr = ' '
     assert not possible(arr)
-    arr=''
+    arr = ''
     assert possible(arr)
 
 
