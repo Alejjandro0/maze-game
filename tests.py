@@ -54,11 +54,7 @@ def test_tryStep():
     arr[x + m][y + l] = ' '
     assert tryStep(x, y, m, l)
 
-def testwave():
-    arr=''
-    T=0
-    assert not (wave(T))
-    arr=' '
+
 
 
 
