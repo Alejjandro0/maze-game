@@ -1,4 +1,4 @@
-from main import arr, saveGame, loadGame, k, x, y, possible, tryStep, start_point
+from main import arr, saveGame, loadGame, k, x, y, possible, tryStep, start_point, wave
 
 
 def test_saveload():
@@ -53,5 +53,13 @@ def test_tryStep():
     l = 1
     arr[x + m][y + l] = ' '
     assert tryStep(x, y, m, l)
+
+def testwave():
+    arr=''
+    T=0
+    assert not (wave(T))
+    arr=' '
+
+
 
 
