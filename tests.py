@@ -29,8 +29,10 @@ def test_genarr():
 #    assert [return False]
 
 def test_possible():
-    arr[x][y] = ' '
+    arr= ' '
     assert not possible(arr)
+    arr='#'
+    assert possible(arr)
 
 
 def test_tryStep():
@@ -45,3 +47,11 @@ def test_tryStep():
     l = 1
     arr[x + m][y + l] = '#'
     assert not tryStep(x, y, m, l)
+    x = 6
+    y = 5
+    m = 0
+    l = 1
+    arr[x + m][y + l] = ' '
+    assert tryStep(x, y, m, l)
+
+
