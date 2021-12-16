@@ -146,7 +146,7 @@ def possible(arr):
         for j in range(len(arr)):
             if arr[i][j] == " ":
                 return False
-    #return True
+    return True
 
 
 def wave_alg(arr):
