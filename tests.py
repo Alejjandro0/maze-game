@@ -66,8 +66,10 @@ def test_wave():
     T=0
     i=1
     j=1
-    arr[i][j]=''
+    arr[i][j]='#'
     assert wave(T)==0
-
-
+    T=0
+    arr[1][1]=' '
+    arr[1][2]=' '
+    assert not wave(T)
 
